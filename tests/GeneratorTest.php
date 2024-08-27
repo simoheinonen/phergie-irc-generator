@@ -11,6 +11,7 @@
 namespace Phergie\Irc\Tests;
 
 use Phergie\Irc\Generator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for \Phergie\Irc\Generator.
@@ -18,7 +19,7 @@ use Phergie\Irc\Generator;
  * @category Phergie
  * @package Phergie\Irc
  */
-class GeneratorTest extends \PHPUnit_Framework_TestCase
+class GeneratorTest extends TestCase
 {
     /**
      * Instance of the class being tested
@@ -30,7 +31,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
     /**
      * Instantiates the class being tested.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->generator = new Generator;
     }
@@ -41,8 +42,8 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
      * @param string $method Method to call
      * @param string $return Expected return value
      * @param array $args Optional arguments to pass to the method
-     * @dataProvider dataProviderTestGenerationMethod
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderTestGenerationMethod')]
     public function testGenerationMethodsWithoutPrefix($method, $return, array $args = array())
     {
         $this->assertSame($return, call_user_func_array(array($this->generator, $method), $args));
@@ -54,8 +55,8 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
      * @param string $method Method to call
      * @param string $return Expected return value
      * @param array $args Optional arguments to pass to the method
-     * @dataProvider dataProviderTestGenerationMethod
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderTestGenerationMethod')]
     public function testGenerationMethodsWithPrefix($method, $return, array $args = array())
     {
         $this->generator->setPrefix('nick!user@host');
@@ -67,7 +68,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function dataProviderTestGenerationMethod()
+    public static function dataProviderTestGenerationMethod()
     {
         return array(
 

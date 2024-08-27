@@ -3,7 +3,10 @@
     "minimum-stability": "dev",
     "name": "phergie/phergie-irc-generator",
     "description": "Generator for messages conforming to the IRC protocol",
-    "keywords": [ "irc", "generator" ],
+    "keywords": [
+        "irc",
+        "generator"
+    ],
     "license": "BSD-2-Clause",
     "support": {
         "email": "team@phergie.org",
@@ -12,10 +15,7 @@
         "source": "https://github.com/phergie/phergie-irc-generator"
     },
     "require": {
-	"php": "^7.0||^5.6"
-    },
-    "require-dev": {
-        "phergie/phergie-irc-bot-react-development": "~1.0.0"
+        "php": "^8.3"
     },
     "autoload": {
         "psr-4": {
@@ -32,5 +32,9 @@
             "type": "vcs",
             "url": "https://github.com/phergie/phergie-irc-generator"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11.4@dev",
+        "rector/rector": "dev-main"
+    }
 }
